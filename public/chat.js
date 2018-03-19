@@ -24,6 +24,7 @@ message.addEventListener('keypress', () => {
 
 // Listen for Server Sockets Events
 socket.on('chat', data => {
+  feedback.innerHTML = "";
   output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
 });
 
