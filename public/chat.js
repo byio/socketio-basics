@@ -14,3 +14,8 @@ btn.addEventListener('click', () => {
     handle: handle.value
   });
 });
+
+// Listen for Server Sockets Events
+socket.on('chat', data => {
+  output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
+});
