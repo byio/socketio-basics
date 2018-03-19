@@ -15,7 +15,14 @@ app.use(express.static('public'));
 const io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('made socket connection');
-  console.log('==========');
-  console.log(socket.id);
+  // console.log('made socket connection');
+  // console.log('==========');
+  // console.log(socket.id);
+
+  // Listen for Client's Emitted Data ('chat')
+  socket.on('chat', data => {
+    // Emit Data through All Sockets with Other Clients Connected to this Server
+    io.sockets.emit('chat', data);
+  });
+
 });
